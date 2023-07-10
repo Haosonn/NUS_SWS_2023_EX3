@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour {
 
     private void EchoGameState()
     {
-        mGameStateEcho.text =  mHero.GetHeroState() + "  " + mEnemySystem.GetEnemyState();
+        mGameStateEcho.text =  mEnemySystem.GetEnemyState() + " " + mHero.GetHeroState();
     }
 }
