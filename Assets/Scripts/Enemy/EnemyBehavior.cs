@@ -16,7 +16,7 @@ public partial class EnemyBehavior : MonoBehaviour {
 
     private static bool mIfRandom = false;
 
-    public static string GetEnemyState() { return "Waypoints(" + mIfRandom ? "Random" : "Sequence" + ")\n";}
+    public static string GetEnemyState() { return ("Waypoints(" + (mIfRandom ? "Random" : "Sequence") + ")\n");}
 
     // Start is called before the first frame update
     void Start()
@@ -31,17 +31,17 @@ public partial class EnemyBehavior : MonoBehaviour {
         PointAtPosition(mMyTarget.transform.localPosition, mTurnRate * Time.smoothDeltaTime);
         transform.localPosition += kMySpeed * Time.smoothDeltaTime * transform.up;
         //If close enough to the target, turn to next target
-        if (Vector3.Distance(transform.localPosition, mMyTarget.transform.localPosition) < 0.5f)
-        {
-            if (mIfRandom)
-            {
-                mMyTarget = sEnemySystem.GetRandomWaypoint();
-            }
-            else
-            {
-                mMyTarget = sEnemySystem.GetNextWaypoint();
-            }
-        }
+        // if (Vector3.Distance(transform.localPosition, mMyTarget.transform.localPosition) < 0.5f)
+        // {
+        //     if (mIfRandom)
+        //     {
+        //         mMyTarget = sEnemySystem.GetRandomWaypoint();
+        //     }
+        //     else
+        //     {
+        //         mMyTarget = sEnemySystem.GetNextWaypoint();
+        //     }
+        // }
     }
 
     private void PointAtPosition(Vector3 p, float r)
