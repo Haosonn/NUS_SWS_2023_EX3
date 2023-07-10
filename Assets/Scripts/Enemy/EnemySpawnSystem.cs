@@ -13,7 +13,7 @@ public class EnemySpawnSystem
 
     private int mEnemyDestroyed = 0;
 
-    private static string[] mTargets = { "A", "B", "C", "D", "E", "F" };
+    public GameObject[] mTargets = new GameObject[6];
     public EnemySpawnSystem(Vector2 min, Vector2 max)
     {
         // Make sure all enemy sees the same EnemySystem and WayPointSystem
@@ -44,13 +44,13 @@ public class EnemySpawnSystem
     public GameObject GetRandomWaypoint()
     {
         int i = Random.Range(0, mTargets.Length);
-        return GameObject.Find(mTargets[i]);
+        return mTargets[i];
     }
 
     public GameObject GetNextWaypoint(string current)
     {
         int i = current[0] - 'A';
         i = (i + 1) % mTargets.Length;
-        return GameObject.Find(mTargets[i]);
+        return mTargets[i];
     }
 }

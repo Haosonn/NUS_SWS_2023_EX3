@@ -189,7 +189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3531261794525954224, guid: b3d1cdee30cc1dc4c9b14949b2523e2c, type: 3}
       propertyPath: mSecToCoolDown
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3531261794525954225, guid: b3d1cdee30cc1dc4c9b14949b2523e2c, type: 3}
       propertyPath: m_Pivot.x

@@ -6,6 +6,7 @@ public class Waypoint : MonoBehaviour
     private const int kHitsToDestroy = 4;
     private const float kWaypointEnergyLost = 0.25f;
     private Vector3 mInitialPosition;
+    public static GameManager mGameManager = null;
 
     private void Start()
     {
@@ -22,17 +23,17 @@ public class Waypoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Waypoint OnTriggerEnter2D");
+        // Debug.Log("Waypoint OnTriggerEnter2D");
         TriggerCheck(collision.gameObject);
     }
 
     private void TriggerCheck(GameObject g)
     {
-        Debug.Log("Waypoint OnTriggerEnter");
+        // Debug.Log("Waypoint OnTriggerEnter");
 
         if (g.name == "Egg(Clone)")
         {
-            Debug.Log("Egg hit");
+            // Debug.Log("Egg hit");
             mNumHit++;
             if (mNumHit < kHitsToDestroy)
             {
