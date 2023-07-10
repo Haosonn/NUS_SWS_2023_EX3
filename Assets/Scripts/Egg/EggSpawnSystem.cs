@@ -25,20 +25,9 @@ public class EggSpawnSystem
     }
 
     #region Spawning support
-    public bool CanSpawn()
-    {
-        return TimeTillNext() <= 0f;
-    }
-
-    public float TimeTillNext()
-    {
-        float sinceLastEgg = Time.realtimeSinceStartup - mSpawnEggAt;
-        return kEggInterval - sinceLastEgg;
-    }
 
     public void SpawnAnEgg(Vector3 p, Vector3 dir)
     {
-        Debug.Assert(CanSpawn());
         GameObject e = GameObject.Instantiate(mEggSample) as GameObject;
         e.transform.position = p;
         e.transform.up = dir;

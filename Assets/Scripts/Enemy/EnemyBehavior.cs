@@ -13,7 +13,8 @@ public partial class EnemyBehavior : MonoBehaviour {
     private int mNumHit = 0;
     private const int kHitsToDestroy = 4;
     private const float kEnemyEnergyLost = 0.8f;
-    private const float mTurnRate = 0.5f;
+    //private const float mTurnRate = 0.5f;
+    private const float mTurnRate = 0.03f;
     public static string GetWaypointState() { return ("Waypoints(" + (mGameManager.mIfRandom ? "Random" : "Sequence") + ")\n");}
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public partial class EnemyBehavior : MonoBehaviour {
     {
         PointAtPosition(mMyTarget.transform.localPosition, mTurnRate * Time.smoothDeltaTime);
         transform.localPosition += kMySpeed * Time.smoothDeltaTime * transform.up;
-        if (Vector3.Distance(transform.localPosition, mMyTarget.transform.localPosition) < 0.5f)
+        if (Vector3.Distance(transform.localPosition, mMyTarget.transform.localPosition) < 25f)
         {
             if (mGameManager.mIfRandom)
             {
