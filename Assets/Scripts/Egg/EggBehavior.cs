@@ -29,7 +29,7 @@ public class EggBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Debug.Log("Egg OnTriggerEnter");
+        Debug.Log("Egg OnTriggerEnter");
         // Collision with hero (especially when first spawned) does not count
         if (collision.gameObject.name != "Hero") 
             DestroyThisEgg(collision.gameObject.name);

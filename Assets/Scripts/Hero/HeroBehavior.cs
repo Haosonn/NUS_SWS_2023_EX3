@@ -74,7 +74,6 @@ public class HeroBehavior : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hero touched");
         if (collision.gameObject.name == "Enemy(Clone)")
             TouchedEnemy();
     }

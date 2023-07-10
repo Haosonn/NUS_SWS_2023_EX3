@@ -26,7 +26,6 @@ public partial class EnemyBehavior : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
         PointAtPosition(mMyTarget.transform.localPosition, mTurnRate * Time.smoothDeltaTime);
         transform.localPosition += kMySpeed * Time.smoothDeltaTime * transform.up;
         if (Vector3.Distance(transform.localPosition, mMyTarget.transform.localPosition) < 0.5f)
