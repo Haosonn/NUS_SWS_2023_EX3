@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
     public Text mGameStateEcho = null;  // Defined in UnityEngine.UI
     public HeroBehavior mHero = null;
+
+    public bool mIfRandom = false;
     private EnemySpawnSystem mEnemySystem = null;
 
     private CameraSupport mMainCamera;
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         GameManager.sTheGlobalBehavior = this;  // Singleton pattern
+        EnemyBehavior.mGameManager = this;
         Debug.Assert(mHero != null);
 
         mMainCamera = Camera.main.GetComponent<CameraSupport>();
@@ -26,6 +29,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         EchoGameState(); // always do this
 
+        if (Input.GetKeyDown(KeyCode.J)) 
+            mIfRandom = !mIfRandom;
         if (Input.GetKey(KeyCode.Q))
             Application.Quit();
     }
@@ -37,6 +42,6 @@ public class GameManager : MonoBehaviour {
 
     private void EchoGameState()
     {
-        mGameStateEcho.text =  mEnemySystem.GetEnemyState() + " " + mHero.GetHeroState();
+        mGameStateEcho.text =  EnemyBehavior.GetWaypointState() + " " + mHero.GetHeroState();
     }
 }
