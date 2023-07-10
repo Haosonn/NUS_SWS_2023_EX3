@@ -12,6 +12,8 @@ public class HeroBehavior : MonoBehaviour {
     private bool mMouseDrive = true;
     //  Hero state
     private int mHeroTouchedEnemy = 0;
+    public CoolDownBar mCoolDown;
+
     private void TouchedEnemy() { mHeroTouchedEnemy++; }
     public string GetHeroState() { return "HERO: Drive(" + (mMouseDrive?"Mouse":"Key") + 
                                           ") TouchedEnemy(" + mHeroTouchedEnemy + ")   " 
@@ -58,11 +60,16 @@ public class HeroBehavior : MonoBehaviour {
 
     private void ProcessEggSpwan()
     {
-        if (mEggSystem.CanSpawn())
+        if (Input.GetKey("space"))
         {
-            if (Input.GetKey("space"))
+            if (mCoolDown.ReadyForNext())
+            {
                 mEggSystem.SpawnAnEgg(transform.position, transform.up);
+                mCoolDown.TriggerCoolDown();
+            }
+
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
