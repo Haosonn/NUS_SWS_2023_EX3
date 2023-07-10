@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Assets",
+    "\\Assets\\Resources",
+    "\\Assets\\Scenes",
+    "\\Assets\\Scripts",
+    "\\Assets\\Scripts\\Egg",
+    "\\Assets\\Scripts\\Enemy",
+    "\\Assets\\Scripts\\Hero"
+  ],
+  "SelectedNode": "\\Assets\\Scripts\\Enemy\\PlaneBehavior.cs",
+  "PreviewInSolutionExplorer": false
+}
