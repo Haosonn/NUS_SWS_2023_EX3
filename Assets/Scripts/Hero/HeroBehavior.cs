@@ -67,7 +67,7 @@ public class HeroBehavior : MonoBehaviour {
                 mEggSystem.SpawnAnEgg(transform.position, transform.up);
                 mCoolDown.TriggerCoolDown();
             }
-
+            
         }
         
     }
